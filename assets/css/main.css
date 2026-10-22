@@ -2052,6 +2052,14 @@ section,
   box-shadow: none;
 }
 
+/* Keep the telephone control's focus state consistent with the other fields. */
+.index-page #form #wanumber:focus,
+.index-page #form #wanumber:focus-visible {
+  border: 1px solid #5cb85c !important;
+  outline: none !important;
+  box-shadow: none;
+}
+
 .contact #form select:not([multiple]) {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;

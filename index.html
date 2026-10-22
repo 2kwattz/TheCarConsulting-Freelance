@@ -359,18 +359,10 @@
                     required="">
                 </div>
 
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
-                </div>
-
                 <!-- <div class="row mt-4">
                   <div class="col-md-6">
                     <input type="text" class="form-control" name="city" id="city" placeholder="City" required="">
                   </div> -->
-
-                <div class="col-md-12">
-                  <input type="number" class="p-2 col-12" name="pincode" id="pincode" style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;" placeholder="Pincode" required="">
-                </div>
 
                 <div class="col-md-12">
                   <div class="form-dropdown"><select class="p-2 col-12" name="maximumPeopleTravelling" id="maximumPeopleTravelling"
@@ -384,20 +376,6 @@
                 </div>
 
                 <div class="col-md-4">
-                  <label class="visually-hidden" for="priorityInCars1">First car priority</label>
-                  <input type="text" class="form-control" name="priorityInCars1" id="priorityInCars1" placeholder="First Car Priority" required>
-                </div>
-                <div class="col-md-4">
-                  <label class="visually-hidden" for="priorityInCars2">Second car priority</label>
-                  <input type="text" class="form-control" name="priorityInCars2" id="priorityInCars2" placeholder="Second Car Priority">
-                </div>
-                <div class="col-md-4">
-                  <label class="visually-hidden" for="priorityInCars3">Third car priority</label>
-                  <input type="text" class="form-control" name="priorityInCars3" id="priorityInCars3" placeholder="Third Car Priority">
-                </div>
-
-
-                <div class="col-md-4">
                   <label class="visually-hidden" for="countryCode">Country dialling code</label>
                   <div class="form-dropdown"><select class="form-control" name="countryCode" id="countryCode" autocomplete="tel-country-code" required>
                     <option value="+91" selected>🇮🇳 India (+91)</option>
@@ -408,13 +386,7 @@
                   <input type="tel" class="form-control" name="wanumber" id="wanumber"
                     placeholder="WhatsApp Number (without country code)" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]+" title="Enter digits only, without the country code" required>
                 </div>
-                <div class="col-md-6">
-                  <label class="visually-hidden" for="country">Country</label>
-                  <div class="form-dropdown"><select class="form-control" name="country" id="country" autocomplete="country-name" required>
-                    <option value="India" selected>India</option>
-                  </select></div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <label class="visually-hidden" for="typeOfCar">Type of car</label>
                   <div class="form-dropdown"><select class="form-control" name="typeOfCar" id="typeOfCar" required>
                     <option value="" disabled selected>Type of Car (New / Used)</option>
@@ -502,8 +474,8 @@
 
 
                   <div class="row mb-4">
-                    <div class=" col-md-6">
-                      <div class="col-md-12 mb-4">
+                    <div class="col-md-4">
+                      <div class="col-md-12">
 
 
 
@@ -550,15 +522,21 @@
                         </select></div>
                       </div>
                     </div>
-                    <div class=" col-md-6">
+                    <div class="col-md-4">
                       <div class="form-dropdown"><select class="p-2 col-12" name="city" id="inputDistrict"
                         style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;">
                         <option value="">Select City</option>
                       </select></div>
                     </div>
+                    <div class="col-md-4">
+                      <label class="visually-hidden" for="country">Country</label>
+                      <div class="form-dropdown"><select class="p-2 col-12" name="country" id="country"
+                        autocomplete="country-name" style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;" required>
+                        <option value="India" selected>India</option>
+                      </select></div>
+                    </div>
 
                   </div>
-
 
                   <div class="col-md-12 mb-4">
                     <textarea class="form-control" name="message" id="message" rows="6" placeholder="Your Message"
