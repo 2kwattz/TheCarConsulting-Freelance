@@ -903,6 +903,10 @@ section,
   .slider .swiper-slide {
     min-height: 300px;
   }
+
+  .index-page #form .location-fields > [class*="col-"] + [class*="col-"] {
+    margin-top: 12px;
+  }
 }
 
 .slider .swiper-button-prev:after,
