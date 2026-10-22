@@ -1,0 +1,11 @@
+Country calling-code data is derived from mledoze/countries:
+https://github.com/mledoze/countries
+
+The database and this derived calling-code dataset are available under the
+Open Database License (ODbL) v1.0:
+https://opendatacommons.org/licenses/odbl/1-0/
+
+Source database: https://raw.githubusercontent.com/mledoze/countries/master/countries.json
+Derived data file: countryCallingCodes.js
+Changes: retained country common names, ISO alpha-2 codes, and calling codes;
+combined calling-code roots with single suffixes and sorted by country name.

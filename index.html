@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Home - The Car Consulting</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo-whitebg.jpeg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css?v=single-dropdown-indicator-7" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <style>
+    /* Modify the text color to a lighter shade */
+    input,
+    select {
+      color: #6c757d !important;
+      /* Lighter grey for text instead of black */
+      border-color: #ddd !important;
+      /* Lighter grey for the border */
+      background-color: #f8f9fa !important;
+      /* Light background color */
+    }
+
+    /* Style for placeholder text */
+    input::placeholder,
+    select::placeholder {
+      color: #6c757d !important;
+      font-size: 1rem !important;
+      /* Default Bootstrap placeholder color */
+    }
+
+
+    /* Optional: Focus state for inputs */
+    input:focus,
+    select:focus {
+      border-color: #5cb85c !important;
+      /* Green border on focus */
+      outline: none !important;
+      /* Remove default focus outline */
+    }
+
+    /* Adjust the text color for select dropdowns */
+    select {
+      color: #6c757d !important;
+      /* Lighter grey text */
+    }
+
+    .carSelectCarousel {
+      width: 80%;
+      max-width: 600px;
+      height: clamp(180px, 45vw, 300px);
+      /* Shorter height */
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .carSelectImages {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .carSelectImages img {
+      width: 100%;
+      flex-shrink: 0;
+      height: 100%;
+      /* Ensures images fit within the shorter carousel */
+      object-fit: contain;
+      padding: 16px;
+      /* Maintains image aspect ratio */
+    }
+
+    .carSelectControls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carSelectControls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .carSelectCheckboxes {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      gap: 10px;
+      max-width: 600px;
+      flex-wrap: wrap;
+    }
+
+    .carSelectCheckboxes label {
+      display: flex;
+      align-items: center;
+    }
+
+    .carSelectCheckboxes input {
+      margin-right: 10px;
+    }
+
+    input:focus,
+    input:active,
+    select:focus,
+    select:active {
+      outline: none !important;
+      border-color: #5cb85c !important;
+      /* Optional: Add custom border color when focused */
+    }
+
+    .response-section {
+  width: 100%;
+  padding: 40px 0;
+  background-color: white; /* Simple white background */
+  border-top: 2px solid #ccc; /* Light grey top border */
+  border-bottom: 2px solid #ccc; /* Light grey bottom border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for subtle effect */
+  text-align: center;
+}
+
+.response-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.response-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333; /* Dark text for better contrast */
+  line-height: 1.5;
+  margin: 0;
+}
+
+.response-section:hover {
+  border-color: #888; /* Slightly darker grey on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle hover effect */
+}
+
+  </style>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/tcc-logo-transp.png" style="object-fit:contain" alt="">
+        <!-- <h1 class="sitename">The Car Consulting</h1> -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#" class="active" style="font-size: 1.2rem">Home</a></li>
+          <li><a href="#about" style="font-size: 1.2rem">About</a></li>
+          <li><a href="#contact" style="font-size: 1.2rem">Contact</a></li>
+          <!-- <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="category.html">Category 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="category.html">Category 2</a></li>
+              <li><a href="category.html">Category 3</a></li>
+              <li><a href="category.html">Category 4</a></li>
+            </ul>
+          </li> -->
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Slider Section -->
+    <section id="slider" class="slider section dark-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+
+          <!-- <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 1,
+              "centeredSlides": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              }
+            }
+          </script> -->
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide" 
+              style="background-image: url('assets/img/toreplaceaudi.jpg'); background-position: center;">
+              <div class="content">
+                <h2><a href="#" class="carouselHeader" style="font-family:GaretBookBold">Your Trusted Partner for Expert Car
+                    Consulting.</a></h2>
+                <p style="font-family:GaretBook">Helping you choose the perfect car that fits your needs, budget, and
+                  lifestyle.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide" style="background-image: url('assets/img/carcover2.jpg');">
+              <div class="content">
+                <h2><a href="#"  class="carouselHeader" style="font-family:GaretBookBold">6 Years of Automotive Experience.</a>
+                </h2>
+                <p style="font-family:GaretBook">We provide personalized consulting services to
+                  help you make informed decisions when buying your vehicle.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide"
+              style="background-position: center; background-image: url('assets/img/carcover4.jpg');">
+              <div class="content">
+                <h2><a href="#"  class="carouselHeader" style="font-family:GaretBookBold">Find the right car for your
+                    requirements.</a>
+                </h2>
+                <p style="font-family:GaretBook">Ensure your next car is road-ready and reliable.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide"
+              style="background-position: center; background-image: url('assets/img/carcover5-wide.png');">
+              <div class="content">
+                <h2><a href="#" class="carouselHeader" style="font-family:GaretBookBold">We simplify every step of your
+                    car-buying journey.</a></h2>
+                <p style="font-family:GaretBook">From research to purchase, we simplify the journey by offering
+                  personalized recommendations in your car-buying journey.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Slider Section -->
+
+
+    <!-- 3D Viewer Section -->
+    <!-- <section id="three-d-viewer" class="three-d-viewer section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title text-center mb-4">Choose your car type</h2>
+
+        <div class="spline-container" style="width: 100%; height: 500px;">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
+          <spline-viewer hint loading-anim-type="spinner-big-dark"
+            url="https://prod.spline.design/vt8ZWbmxPM3ypwDo/scene.splinecode"></spline-viewer>
+        </div>
+      </div>
+    </section> -->
+    <!-- /3D Viewer Section -->
+
+    <section id="contact" class="contact section mx-3">
+
+      <h2 class="section-title text-center mb-4" style="font-family:GaretBookBold">Fill the Form</h2>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4" style="display: flex; align-items:center; justify-content:center">
+
+
+          <div class="col-lg-10">
+            <form id="form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <!-- <div class="col-md-6"> -->
+                <input type="hidden" name="to_name" id="to_name" value="Tanmay Vaswani" class="form-control"
+                  placeholder="To Name" required="">
+                <!-- </div> -->
+
+                <div class="col-md-6">
+                  <input type="text" name="from_name" id="from_name" class="p-2 col-12"  style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;" placeholder="Your Name"
+                    required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="p-2 col-12" name="reply_to" id="reply_to" placeholder="Your Email" style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;"
+                    required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                </div>
+
+                <!-- <div class="row mt-4">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="city" id="city" placeholder="City" required="">
+                  </div> -->
+
+                <div class="col-md-12">
+                  <input type="number" class="p-2 col-12" name="pincode" id="pincode" style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;" placeholder="Pincode" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-dropdown"><select class="p-2 col-12" name="maximumPeopleTravelling" id="maximumPeopleTravelling"
+                    style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;"
+                    required>
+                    <option value="" disabled selected>Maximum People Travelling</option>
+                    <option value="1-3">1-3</option>
+                    <option value="3-5">3-5</option>
+                    <option value="5-8">5-8</option>
+                  </select></div>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="visually-hidden" for="priorityInCars1">First car priority</label>
+                  <input type="text" class="form-control" name="priorityInCars1" id="priorityInCars1" placeholder="First Car Priority" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="visually-hidden" for="priorityInCars2">Second car priority</label>
+                  <input type="text" class="form-control" name="priorityInCars2" id="priorityInCars2" placeholder="Second Car Priority">
+                </div>
+                <div class="col-md-4">
+                  <label class="visually-hidden" for="priorityInCars3">Third car priority</label>
+                  <input type="text" class="form-control" name="priorityInCars3" id="priorityInCars3" placeholder="Third Car Priority">
+                </div>
+
+
+                <div class="col-md-4">
+                  <label class="visually-hidden" for="countryCode">Country dialling code</label>
+                  <div class="form-dropdown"><select class="form-control" name="countryCode" id="countryCode" autocomplete="tel-country-code" required>
+                    <option value="+91" selected>🇮🇳 India (+91)</option>
+                  </select></div>
+                </div>
+                <div class="col-md-8">
+                  <label class="visually-hidden" for="wanumber">WhatsApp number</label>
+                  <input type="tel" class="form-control" name="wanumber" id="wanumber"
+                    placeholder="WhatsApp Number (without country code)" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]+" title="Enter digits only, without the country code" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="country">Country</label>
+                  <div class="form-dropdown"><select class="form-control" name="country" id="country" autocomplete="country-name" required>
+                    <option value="India" selected>India</option>
+                  </select></div>
+                </div>
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="typeOfCar">Type of car</label>
+                  <div class="form-dropdown"><select class="form-control" name="typeOfCar" id="typeOfCar" required>
+                    <option value="" disabled selected>Type of Car (New / Used)</option>
+                    <option value="New">New</option>
+                    <option value="Used">Used</option>
+                    <option value="Either">Either</option>
+                  </select></div>
+                </div>
+
+                
+                <div class="col-md-12">
+                  <div class="form-dropdown"><select class="p-2 col-12"
+                    style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;"
+                    name="dailyDriving" id="dailyDriving" required>
+                    <option value="" disabled selected>Approximate Daily Driving</option>
+                    <option value="Less than 10 kilometres">Less than 10 kilometres</option>
+                    <option value="10–30 km">10–30 km</option>
+                    <option value="30–50 km">30–50 km</option>
+                    <option value="50+ km">50+ km</option>
+                  </select></div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-dropdown"><select class="p-2 col-12"
+                    style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;"
+                    name="drivingRoadType" id="drivingRoadType" required>
+                    <option value="" disabled selected>What kind of roads do you mainly drive on?</option>
+                    <option value="city">City</option>
+                    <option value="highway">Highway</option>
+                    <option value="bad_broken">Bad/Broken roads</option>
+                    <option value="mixed">Mixed</option>
+                  </select></div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-dropdown"><select class="p-2 col-12 text-muted"
+                    style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;"
+                    id="carbudget" name="carbudget" required>
+                    <option value="" class="text-muted" disabled selected>Car Buying Budget</option>
+                    <option value="Under ₹5 Lakh">Under ₹5 Lakh</option>
+                    <option value="₹5 - ₹7 Lakh">₹5 - ₹7 Lakh</option>
+                    <option value="₹7 - ₹10 Lakh">₹7 - ₹10 Lakh</option>
+                    <option value="₹10 - ₹12 Lakh">₹10 - ₹12 Lakh</option>
+                    <option value="₹12 - ₹16 Lakh">₹12 - ₹16 Lakh</option>
+                    <option value="₹16 - ₹20 Lakh">₹16 - ₹20 Lakh</option>
+                    <option value="₹21 - ₹25 Lakh">₹21 - ₹25 Lakh</option>
+                    <option value="₹25 - ₹35 Lakh">₹25 - ₹35 Lakh</option>
+                    <option value="₹35 - ₹50 Lakh">₹35 - ₹50 Lakh</option>
+                    <option value="₹50 - ₹85 Lakh">₹50 - ₹85 Lakh</option>
+                    <option value="Above ₹85 Lakh">Above ₹85 Lakh</option>
+                  </select></div>
+
+                </div>
+
+                <div class="slider-container col-12">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="budget-heading">Exact Buying Budget</h6>
+                  </div>
+
+                  <div class="range-slider mb-4">
+                    <input type="range" aria-label="Minimum buying budget" name="minBudgetSlider" id="minBudgetSlider" min="100000" max="200000000"
+                      step="100000" value="100000">
+                    <input type="range" aria-label="Maximum buying budget" name="maxBudgetSlider" id="maxBudgetSlider" min="100000" max="200000000"
+                      step="100000" value="200000000">
+                  </div>
+                  <div class="slider-values mb-4">
+                    <div class="budget-value">
+                    <span class="budget-currency" aria-hidden="true">₹</span>
+                    <div class="input-group budget-field">
+                    <label class="input-group-text" for="minBudget">From<span class="visually-hidden"> budget in rupees</span></label>
+                    <input type="number" class="form-control" placeholder="Minimum Budget" name="minBudget" id="minBudget" min="100000" max="200000000" step="100000"
+                      value="100000">
+                    </div>
+                    </div>
+                    <div class="budget-value">
+                    <span class="budget-currency" aria-hidden="true">₹</span>
+                    <div class="input-group budget-field">
+                    <label class="input-group-text" for="maxBudget">To<span class="visually-hidden"> budget in rupees</span></label>
+                    <input type="number" class="form-control" placeholder="Maximum Budget" name="maxBudget" id="maxBudget" min="100000" max="200000000" step="100000"
+                      value="200000000">
+                    </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row mb-4">
+                    <div class=" col-md-6">
+                      <div class="col-md-12 mb-4">
+
+
+
+                        <div class="form-dropdown"><select class="p-2 col-12" name="state" id="inputState"
+                          style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;">
+                          <option value="SelectState">Select State</option>
+                          <option value="Andhra Pradesh">Andhra Pradesh</option>
+                          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                          <option value="Assam">Assam</option>
+                          <option value="Bihar">Bihar</option>
+                          <option value="Chhattisgarh">Chhattisgarh</option>
+                          <option value="Goa">Goa</option>
+                          <option value="Gujarat">Gujarat</option>
+                          <option value="Haryana">Haryana</option>
+                          <option value="Himachal Pradesh">Himachal Pradesh</option>
+                          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                          <option value="Jharkhand">Jharkhand</option>
+                          <option value="Karnataka">Karnataka</option>
+                          <option value="Kerala">Kerala</option>
+                          <option value="Madhya Pradesh">Madhya Pradesh</option>
+                          <option value="Maharashtra">Maharashtra</option>
+                          <option value="Manipur">Manipur</option>
+                          <option value="Meghalaya">Meghalaya</option>
+                          <option value="Mizoram">Mizoram</option>
+                          <option value="Nagaland">Nagaland</option>
+                          <option value="Odisha">Odisha</option>
+                          <option value="Punjab">Punjab</option>
+                          <option value="Rajasthan">Rajasthan</option>
+                          <option value="Sikkim">Sikkim</option>
+                          <option value="Tamil Nadu">Tamil Nadu</option>
+                          <option value="Telangana">Telangana</option>
+                          <option value="Tripura">Tripura</option>
+                          <option value="Uttarakhand">Uttarakhand</option>
+                          <option value="Uttar Pradesh">Uttar Pradesh</option>
+                          <option value="West Bengal">West Bengal</option>
+                          <option disabled style="background-color:#aaa; color:#fff">Union Territories</option>
+                          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                          <option value="Chandigarh">Chandigarh</option>
+                          <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                          <option value="Daman and Diu">Daman and Diu</option>
+                          <option value="Delhi">Delhi</option>
+                          <option value="Lakshadweep">Lakshadweep</option>
+                          <option value="Puducherry">Puducherry</option>
+                        </select></div>
+                      </div>
+                    </div>
+                    <div class=" col-md-6">
+                      <div class="form-dropdown"><select class="p-2 col-12" name="city" id="inputDistrict"
+                        style="-webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: 1px solid #ccc;">
+                        <option value="">Select City</option>
+                      </select></div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="col-md-12 mb-4">
+                    <textarea class="form-control" name="message" id="message" rows="6" placeholder="Your Message"
+                      required=""></textarea>
+                  </div>
+
+                  <div class="col-md-12 text-center mb-4">
+
+
+
+                    <div id="carOptions" class="section" data-aos="fade-up" data-aos-delay="100"
+                      style="display: flex; flex-direction:column; justify-content:center; align-items:center">
+
+                      <div class="container"
+                        style="display: flex; flex-direction:column; justify-content:center; align-items:center"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="section-title text-center mb-4">Choose your car type</h2>
+                        <div class="carSelectCarousel">
+                          <div class="carSelectImages">
+                            <img src="assets/img/slider1transp.png" alt="Hatchback" decoding="async">
+                            <img src="assets/img/slider2sedan.jpg" alt="Sedan" decoding="async">
+                            <img src="assets/img/slider3MPV.png" alt="MPV" decoding="async">
+                            <img src="assets/img/slider4SUV.png" alt="SUV" decoding="async">
+                          </div>
+                          <div class="carSelectControls">
+                            <button class="carSelectPrev" type="button">&#10094;</button>
+                            <button class="carSelectNext" type="button" >&#10095;</button>
+                          </div>
+                        </div>
+
+                        <div class="carSelectCheckboxes" name="carType">
+                          <label><input type="checkbox" name="carType" class="carSelectImgCheckbox" value="Hatchback"
+                              id="img1">Hatchback</label>
+                          <label><input type="checkbox" name="carType" class="carSelectImgCheckbox" value="Sedan"
+                              id="img2">Sedan</label>
+                          <label><input type="checkbox" name="carType" class="carSelectImgCheckbox" value="MPV" id="img3">MPV</label>
+                          <label><input type="checkbox" name="carType" class="carSelectImgCheckbox" value="SUV" id="img4">SUV</label>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <button type="submit" class="btn border" id="submitForm">Send Message</button>
+                    <div class="mt-3" aria-live="polite" aria-atomic="true">
+                      <div class="loading">Sending your enquiry...</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">Your enquiry has been sent successfully. Thank you!</div>
+                    </div>
+                  </div>
+
+                </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+      
+      <section class="response-section my-3">
+        <div class="response-container">
+          <p class="response-text">Expect a reply from us within 72 hours!</p>
+        </div>
+      </section>
+    </section><!-- /Contact Section -->
+
+    <section id="about" class="about section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <h2 class="section-title text-center mb-4">About Us</h2>
+
+        <div class="row gy-4" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+          <div class="col-lg-8">
+            <p class="about-text" style="font-size: 1.2rem; color: #555;">
+              Welcome to TheCarConsulting.com – your trusted partner in finding the perfect car!
+            </p>
+            <p class="about-mission mt-4" style="font-size: 1rem; color: #777;">
+              My journey with automobiles began long before I started this consulting service. As a child, I was
+              captivated by the sleek designs, powerful engines, and innovative technology of cars. I spent countless
+              hours collecting die-cast car models, flipping through automobile magazines, and eagerly gathering
+              brochures from showrooms. Even today, this passion continues to drive me, with my collection expanding and
+              my enthusiasm growing stronger with every passing year.
+            </p>
+
+            <p class="about-mission mt-4" style="font-size: 1rem; color: #777;">
+              In India, buying a car isn’t just a transaction—it’s a celebration, akin to a wedding or festival. We
+              Indians share a deep emotional bond with our vehicles, treating them as cherished members of our families.
+              This connection makes car buying a significant milestone and a profound responsibility—one I take very
+              seriously.
+            </p>
+
+            <img src="assets/img/new-car-delivery-1.avif" class="img-fluid about-delivery-image" alt="New car delivery" loading="lazy" decoding="async">
+
+            <p class="about-mission mt-4" style="font-size: 1rem; color: #777;">
+              What started as a hobby evolved into a mission to help others. My first consulting experience was helping
+              a friend’s family choose their ideal car. Their satisfaction inspired me to assist more people, and soon,
+              I was guiding families, friends, and neighbors in making informed car-buying decisions. In high school, I
+              took my service to WhatsApp, offering advice remotely to those who needed guidance.
+            </p>
+
+
+            <p class="about-mission mt-4" style="font-size: 1rem; color: #777;">
+              Today, through TheCarConsulting.com, I’ve transformed my passion into a comprehensive, personalized
+              service. I don’t just provide advice—I walk with you every step of the way. From accompanying you to
+              showrooms and introducing you to the right sales personnel to negotiating the sweetest deal possible, I
+              ensure your car-buying experience is seamless and stress-free. My extensive network of dealership
+              connections and understanding of the market help me secure the best offers tailored to your needs.
+            </p>
+
+            <p class="about-mission mt-4" style="font-size: 1rem; color: #777;">
+              At TheCarConsulting.com, my goal is to turn the often overwhelming process of buying a car into a joyful and
+            memorable journey. Whether you're a first-time buyer or a seasoned car enthusiast, I’m here to help you find
+            the vehicle of your dreams while making every step of the process smooth, enjoyable, and rewarding.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    
+
+  </main>
+
+
+
+
+  <footer id="footer" class="footer dark-background px-4">
+
+    <div class="container copyright text-center mt-4">
+
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about d-flex align-items-center ">
+          <div href="#" style="display: flex; flex-direction: column; align-items: center">
+            <span class="h3 sitename text-white">TheCarConsulting.com</span>
+            <a href="mailto:tanmayvaswani@outlook.com" style="display: flex; flex-direction: column; align-items: center">
+              <span style="color:white;"> tanmayvaswani@outlook.com </span> </a>
+            <br>
+         
+          <br>
+        </div>
+
+
+
+        </div>
+      </div>
+      <!-- <div class="credits">
+        <p>© <span>Copyright</span> <span>All Rights Reserved</span></p>
+
+      </div> -->
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/cityStateDropdown.js?v=spelling-2"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.swiper', {
+        loop: true,
+        speed: 600,
+        autoplay: {
+          delay: 5000,
+        },
+        slidesPerView: 1,
+        centeredSlides: true,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+  </script>
+
+
+
+  <script>
+    // JavaScript for handling the sliders and corresponding input fields
+    const minBudgetSlider = document.getElementById('minBudgetSlider');
+    const maxBudgetSlider = document.getElementById('maxBudgetSlider');
+    const minBudget = document.getElementById('minBudget');
+    const maxBudget = document.getElementById('maxBudget');
+
+    // Update inputs when sliders are adjusted
+    minBudgetSlider.addEventListener('input', function () {
+      if (parseInt(minBudgetSlider.value) >= parseInt(maxBudgetSlider.value)) {
+        minBudgetSlider.value = Math.max(Number(minBudgetSlider.min), Number(maxBudgetSlider.value) - Number(minBudgetSlider.step));
+      }
+      minBudget.value = minBudgetSlider.value; // Sync with input
+    });
+
+    maxBudgetSlider.addEventListener('input', function () {
+      if (parseInt(maxBudgetSlider.value) <= parseInt(minBudgetSlider.value)) {
+        maxBudgetSlider.value = Math.min(Number(maxBudgetSlider.max), Number(minBudgetSlider.value) + Number(maxBudgetSlider.step));
+      }
+      maxBudget.value = maxBudgetSlider.value; // Sync with input
+    });
+
+    // Update sliders when inputs are adjusted
+    minBudget.addEventListener('input', function () {
+      if (minBudget.value === '') return;
+      const value = Math.max(Number(minBudgetSlider.min), Math.min(Number(minBudget.value), Number(maxBudgetSlider.value)));
+      minBudget.value = value; // Clamp to valid range
+      minBudgetSlider.value = value; // Sync with slider
+    });
+
+    maxBudget.addEventListener('input', function () {
+      if (maxBudget.value === '') return;
+      const value = Math.min(Number(maxBudgetSlider.max), Math.max(Number(maxBudget.value), Number(minBudgetSlider.value)));
+      maxBudget.value = value; // Clamp to valid range
+      maxBudgetSlider.value = value; // Sync with slider
+    });
+
+    function updateBudgetTracks() {
+      [minBudgetSlider, maxBudgetSlider].forEach(slider => {
+        const percent = (Number(slider.value) - Number(slider.min)) / (Number(slider.max) - Number(slider.min)) * 100;
+        slider.style.setProperty('--budget-fill', `${percent}%`);
+      });
+    }
+    [minBudgetSlider, maxBudgetSlider, minBudget, maxBudget].forEach(input => {
+      input.addEventListener('input', updateBudgetTracks);
+    });
+    updateBudgetTracks();
+
+    const images = document.querySelector('.carSelectImages');
+    const totalImages = images.children.length;
+    let index = 0;
+    const carCheckboxes = document.querySelectorAll('.carSelectImgCheckbox');
+    let selectedCarHistory = Array.from(carCheckboxes)
+      .map((checkbox, idx) => checkbox.checked ? idx : -1)
+      .filter(idx => idx !== -1);
+
+    document.querySelector('.carSelectPrev').addEventListener('click', () => {
+      
+      index = (index > 0) ? index - 1 : totalImages - 1;
+      updateCarousel();
+    });
+
+    document.querySelector('.carSelectNext').addEventListener('click', () => {
+      index = (index < totalImages - 1) ? index + 1 : 0;
+      updateCarousel();
+    });
+
+    function updateCarousel() {
+      images.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    carCheckboxes.forEach((checkbox, idx) => {
+      checkbox.addEventListener('change', () => {
+        selectedCarHistory = selectedCarHistory.filter(selectedIndex => selectedIndex !== idx);
+
+        if (checkbox.checked) {
+          selectedCarHistory.push(idx);
+          index = idx;
+        } else if (index === idx) {
+          index = selectedCarHistory.length > 0
+            ? selectedCarHistory[selectedCarHistory.length - 1]
+            : 0;
+        }
+
+        updateCarousel();
+      });
+    });
+
+    if (selectedCarHistory.length > 0) {
+      index = selectedCarHistory[selectedCarHistory.length - 1];
+      updateCarousel();
+    }
+
+    const inputField = document.getElementById('carbudget');
+    const selectField = document.getElementById('selectField');
+
+    // Apply styles when the input field is focused
+    inputField.addEventListener('focus', function () {
+      inputField.style.borderColor = '#5cb85c';
+      inputField.style.outline = 'none';
+    });
+
+    // Remove styles when the input field loses focus
+    inputField.addEventListener('blur', function () {
+      inputField.style.borderColor = '';  // Reset border color
+      inputField.style.outline = '';  // Reset outline
+    });
+
+    // Apply styles when the select field is focused
+    selectField?.addEventListener('focus', function () {
+      selectField.style.borderColor = '#5cb85c';
+      selectField.style.outline = 'none';
+    });
+
+    // Remove styles when the select field loses focus
+    selectField?.addEventListener('blur', function () {
+      selectField.style.borderColor = '';  // Reset border color
+      selectField.style.outline = '';  // Reset outline
+    });
+  </script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/countryCallingCodes.js"></script>
+  <script src="assets/js/countryDropdown.js"></script>
+  <script src="forms/sendForm.js?v=public-key-4"></script>
+
+
+  <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>
